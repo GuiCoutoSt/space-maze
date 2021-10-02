@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Free Pixel';
+    src: url('/assets/fonts/FreePixel.ttf');
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Free Pixel', Arial, Helvetica, sans-serif;
+    background-color: #000100;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.header {
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 130px;
+}
+
+.header__title {
+    padding: 10px;
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.header__info {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.header__info-commands {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-shadow: -1px -1px 0 #01FF70, 
+                  1px -1px 0 #01FF70,
+                 -1px  1px 0 #01FF70,
+                  1px  1px 0 #01FF70;
+}
+
+.section {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section__image {
+    width: 400px;
+    animation: spaceship 1.5s ease-in-out infinite;
+}
+
+.section__button {
+    margin: 50px;
+    border: none;
+    background-color: #000100;
+    color: #FFF;
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: 'Free Pixel', Arial, Helvetica, sans-serif;
+    text-shadow: -1px -1px 0 #01FF70, 
+                  1px -1px 0 #01FF70,
+                 -1px  1px 0 #01FF70,
+                  1px  1px 0 #01FF70;
+}
+
+.section__button:hover {
+    animation: buttons 1s infinite;
+    cursor: pointer;
+}
+
+.section__instructions-title {
+    padding: 15px;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.section__instructions-list {
+    text-align: center;
+}
+
+.section__instructions-list__item {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.section__planet-nine {
+    width: 200px;
+}
+
+.section__instructions-paragraph {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.section__good-luck {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+
+@keyframes rising {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spaceship {
+    0% {
+        transform: translateY(-10px);
+    }
+
+   50% {
+        transform: translateY(0px)
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes spaceship-launcher {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-1000px);
+    }
+}
+
+@keyframes buttons {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+
+}
+
+
+
