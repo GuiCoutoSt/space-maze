@@ -5,7 +5,8 @@ const body = document.body;
 const headerCommands = document.getElementById('headerCommands');
 
 window.onload = () => {
-    body.style.animation = 'rising 5s';
+    body.classList.add('body__animation-init');
+
     headerCommands.style.animation = 'buttons 1.5s infinite';
 }
 
@@ -72,13 +73,12 @@ const instructions = () => {
         generateSection.innerHTML = '';
         header.innerHTML = '';
 
-        body.classList.add('body__background');
-
-        board.style.animation = 'rising 5s';
+        body.classList.add('body__animation-game');
+        body.classList.add('body-game-background');
 
         generateMaze();
 
-        // spaceshipInside.style.animation = 'spaceship-arrive 5s';
+        
     }); 
 }
 
@@ -94,13 +94,22 @@ const spaceship = document.getElementById('spaceship');
 const pressNext = document.getElementById('pressNext');
 
 pressNext.addEventListener('click', () => {
+    body.classList.remove('body__animation-init');
 
     spaceship.style.animation = 'spaceship-launcher 1s';
+    
     setTimeout(instructions, 1000);
+
     headerCommands.innerText = 'Press Start';
 });
 
 const generateMaze = () => {
+    spaceshipInside.classList.add('inside-spaceship-animation');
+
+    setTimeout(function() {
+        spaceshipInside.classList.remove('inside-spaceship-animation')
+    }, 5000); 
+
     const map = [
         "WWWWWWWWWWWWWWWWWWWWW",
         "W   W     W     W W W",
@@ -159,7 +168,7 @@ const generateMaze = () => {
             } 
             
         }
-    }
+    }   
 
     generateSection.appendChild(board);
 
@@ -169,26 +178,39 @@ const generateMaze = () => {
         spaceship: document.getElementById('insideSpaceship')
     }
     
-    
-
     document.addEventListener('keydown', (evt) => {
         const key = evt.key;
+        
+        console.log(player.j, player.k)
 
         if (key === 'ArrowRight') {
             player.spaceship.src = './assets/images/spaceshipright.png';
+
+            player.spaceship.classList.add('inside-spaceship-slideRight');
+
+            setTimeout(function() {
+                player.spaceship.classList.remove('inside-spaceship-slideRight')
+            }, 100);
+
+            if (document.getElementById(`${player.j}-${player.k + 1}`).dataset.type === 'F') {
+                winningCondition(player.j, player.k, player.spaceship);
+            }
 
             if (document.getElementById(`${player.j}-${player.k + 1}`).dataset.type === 'B') {
                 player.k++;
 
                 document.getElementById(`${player.j}-${player.k}`).appendChild(player.spaceship);
             }
-            // } else if (document.getElementById(`${player.j}-${player.k + 1}`).dataset.type === 'W') {
-            //     console.log('wall');
-            // }
         }
 
         else if (key === 'ArrowLeft') {
             player.spaceship.src = './assets/images/spaceshipleft.png';
+
+            player.spaceship.classList.add('inside-spaceship-slideLeft');
+
+            setTimeout(function() {
+                player.spaceship.classList.remove('inside-spaceship-slideLeft')
+            }, 100);
 
             if (document.getElementById(`${player.j}-${player.k - 1}`).dataset.type === 'B') {
                 player.k--;
@@ -200,6 +222,12 @@ const generateMaze = () => {
         else if (key === 'ArrowUp') {
             player.spaceship.src = './assets/images/spaceshipup.png';
 
+            player.spaceship.classList.add('inside-spaceship-slideTop');
+
+            setTimeout(function() {
+                player.spaceship.classList.remove('inside-spaceship-slideTop')
+            }, 100);
+
             if (document.getElementById(`${player.j - 1}-${player.k}`).dataset.type === 'B') {
                 player.j--;
 
@@ -210,6 +238,12 @@ const generateMaze = () => {
         else if (key === 'ArrowDown') {
             player.spaceship.src = './assets/images/spaceshipdown.png';
 
+            player.spaceship.classList.add('inside-spaceship-slideDown');
+
+            setTimeout(function() {
+                player.spaceship.classList.remove('inside-spaceship-slideDown')
+            }, 100);
+
             if (document.getElementById(`${player.j + 1}-${player.k}`).dataset.type === 'B') {
                 player.j++;
 
@@ -217,10 +251,14 @@ const generateMaze = () => {
             }
         }
     });
+}
 
-    
+const winningCondition = (j, k, player) => {
+    if (j === 8 && k === 19) {
+        document.getElementById(`8-20`).removeChild(planetNine);
 
-
+        document.getElementById(`8-20`).appendChild(player);
+    }
 }
 
 
