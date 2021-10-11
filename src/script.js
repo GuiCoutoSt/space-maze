@@ -1,28 +1,28 @@
 // soundEffects
 const mainThemeMusic = document.createElement('audio');
-mainThemeMusic.src = './assets/sounds/8\ BIT\ Interstellar\ Main\ Theme\ Hans\ Zimmer\ 8\ BIT.mp3';
+mainThemeMusic.src = './src/assets/sounds/8\ BIT\ Interstellar\ Main\ Theme\ Hans\ Zimmer\ 8\ BIT.mp3';
 mainThemeMusic.loop = 'true';
 mainThemeMusic.volume = 0.5;
 mainThemeMusic.playbackRate = 1.20;
 
 const victoryMusic = document.createElement('audio');
-victoryMusic.src = './assets/sounds/Interstellar\ main\ theme\ 8-bit.mp3';
+victoryMusic.src = './src/assets/sounds/Interstellar\ main\ theme\ 8-bit.mp3';
 victoryMusic.loop = 'true';
 victoryMusic.volume = 0.6;
 
 const spaceshipLaunch = document.createElement('audio');
-spaceshipLaunch.src = './assets/sounds/spacechip-launch.mp3';
+spaceshipLaunch.src = './src/assets/sounds/spacechip-launch.mp3';
 spaceshipLaunch.currentTime = 0;
 spaceshipLaunch.playbackRate = 5;
 
 const spaceshipPassing = document.createElement('audio');
-spaceshipPassing.src = './assets/sounds/final.mp3';
+spaceshipPassing.src = './src/assets/sounds/final.mp3';
 
 const spaceshipMoving = document.createElement('audio');
-spaceshipMoving.src = './assets/sounds/spaceship-moving.mp3';
+spaceshipMoving.src = './src/assets/sounds/spaceship-moving.mp3';
 
 const bipSound = document.createElement('audio');
-bipSound.src = './assets/sounds/bip.mp3';
+bipSound.src = './src/assets/sounds/bip.mp3';
 // soundEffects
 
 const body = document.body;
@@ -41,10 +41,11 @@ const generateSection = document.getElementById('generateSection');
 
 const planetNine = document.createElement('img');
 planetNine.classList.add('section__planet-nine');
-planetNine.src = './assets/images/planet-nine.png';
+planetNine.src = './src/assets/images/planet-nine.png';
 
 const instructions = () => {
-    header.style.marginBottom = '50px';
+    header.classList.add('header--instructions');
+
     generateSection.innerHTML = '';
 
     generateSection.style.animation = 'rising 2s';
@@ -114,7 +115,7 @@ board.classList.add('map-board');
 
 const spaceshipInside = document.createElement('img');
 spaceshipInside.id = 'insideSpaceship';
-spaceshipInside.src = './assets/images/spaceshipright.png';
+spaceshipInside.src = './src/assets/images/spaceshipright.png';
 
 const spaceship = document.getElementById('spaceship');
 
@@ -235,7 +236,7 @@ const movingTheSpaceship = (evt, player) => {
     if (evt === 'ArrowRight') {
         spaceshipMoving.play();
 
-        player.spaceship.src = './assets/images/spaceshipright.png';
+        player.spaceship.src = './src/assets/images/spaceshipright.png';
         
         player.spaceship.classList.add('inside-spaceship-slideRight');
 
@@ -257,7 +258,7 @@ const movingTheSpaceship = (evt, player) => {
     else if (evt === 'ArrowLeft') {
         spaceshipMoving.play();
 
-        player.spaceship.src = './assets/images/spaceshipleft.png';
+        player.spaceship.src = './src/assets/images/spaceshipleft.png';
 
         player.spaceship.classList.add('inside-spaceship-slideLeft');
 
@@ -275,7 +276,7 @@ const movingTheSpaceship = (evt, player) => {
     else if (evt === 'ArrowUp') {
         spaceshipMoving.play();
 
-        player.spaceship.src = './assets/images/spaceshipup.png';
+        player.spaceship.src = './src/assets/images/spaceshipup.png';
 
         player.spaceship.classList.add('inside-spaceship-slideTop');
 
@@ -293,7 +294,7 @@ const movingTheSpaceship = (evt, player) => {
     else if (evt === 'ArrowDown') {
         spaceshipMoving.play();
 
-        player.spaceship.src = './assets/images/spaceshipdown.png';
+        player.spaceship.src = './src/assets/images/spaceshipdown.png';
 
         player.spaceship.classList.add('inside-spaceship-slideDown');
 
@@ -335,11 +336,11 @@ const victoryAnimation = () => {
     body.classList.remove('body-game-background');
 
     const planetNine = document.createElement('img');
-    planetNine.src = './assets/images/planet-nine.png';
+    planetNine.src = './src/assets/images/planet-nine.png';
     planetNine.classList.add('popup__planetNine');
 
     const spaceship = document.createElement('img');
-    spaceship.src = './assets/images/spaceshipup.png';
+    spaceship.src = './src/assets/images/spaceshipup.png';
     spaceship.classList.add('spaceship-end-1');
     
     generateSection.appendChild(planetNine);
@@ -379,7 +380,7 @@ const victoryPopUp = () => {
     
 
     const popupImg = document.createElement('img');
-    popupImg.src = './assets/images/the-eye.png';
+    popupImg.src = './src/assets/images/the-eye.png';
     popupImg.classList = 'popup__img';
 
     const buttonsNest = document.createElement('div');
