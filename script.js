@@ -103,6 +103,9 @@ const instructions = () => {
         body.classList.add('body-game-background');
         
         generateMaze();
+
+        body.removeChild(header);
+        body.classList.add('body__end');
     }); 
 }
 
@@ -329,7 +332,6 @@ const winningCondition = (spaceship) => {
 const victoryAnimation = () => {
     generateSection.innerHTML = '';
 
-    body.classList.add('body__end');
     body.classList.remove('body-game-background');
 
     const planetNine = document.createElement('img');
@@ -406,8 +408,6 @@ const victoryPopUp = () => {
     document.getElementById('resetButton').addEventListener('click', () => {
         generateSection.innerHTML = '';
         board.innerHTML = '';
-
-        body.classList.remove('body__end');
 
         body.classList.add('body__animation-game');
         body.classList.add('body-game-background');

@@ -412,7 +412,7 @@ body {
 
 @keyframes spaceshipEnd {
     0% {
-        transform: translateY(800px);
+        transform: translateY(600px);
     }
 
     100% {
