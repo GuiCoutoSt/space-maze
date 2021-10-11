@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Free Pixel';
-    src: url('/assets/fonts/FreePixel.ttf');
+    src: url('../assets/fonts/FreePixel.ttf');
 }
 
 html, body {
@@ -29,7 +29,7 @@ body {
 
 .body-game-background {
     background-color: transparent;
-    background-image: url('/assets/images/galaxy-background.jpg');
+    background-image: url('../assets/images/galaxy-background.jpg');
     background-size: 100px;
     background-repeat: repeat;
 }
