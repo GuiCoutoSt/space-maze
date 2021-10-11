@@ -18,6 +18,11 @@ body {
     font-size: 16px;
 }
 
+.body__background {
+    background-image: url('.assets/images/galaxy-background.jpg');
+    background-repeat: repeat;
+}
+
 .header {
     text-align: center;
     padding: 30px;
@@ -125,8 +130,8 @@ body {
 .maze-space {
     height: 50px;
     width: 50px;
-    background-color: #000100;
-    border: 1px solid #000100;
+    background-color: transparent;
+    border: 1px solid transparent;
 }
 
 .maze-spaceship {
@@ -187,8 +192,18 @@ body {
     100% {
         opacity: 1;
     }
+}
 
+@keyframes spaceship-arrive {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 

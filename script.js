@@ -1,6 +1,5 @@
 // Intro
 // reload: location.reload()
-
 const body = document.body;
 
 const headerCommands = document.getElementById('headerCommands');
@@ -67,32 +66,28 @@ const instructions = () => {
     generateSection.appendChild(goodLuck);
     generateSection.appendChild(pressStart);
 
-    let startButton = document.getElementById('pressStart');
+    const startButton = document.getElementById('pressStart');
 
     startButton.addEventListener('click', () => {
         generateSection.innerHTML = '';
         header.innerHTML = '';
 
+        body.classList.add('body__background');
+
         board.style.animation = 'rising 5s';
 
         generateMaze();
-    })
+
+        // spaceshipInside.style.animation = 'spaceship-arrive 5s';
+    }); 
 }
 
 const board = document.createElement('div');
 board.classList.add('map-board');
 
-const spaceshipUp = document.createElement('img');
-spaceshipUp.src = './assets/images/spaceshipup.png';
-
-const spaceshipDown = document.createElement('img');
-spaceshipDown.src = './assets/images/spaceshipdown.png';
-
-const spaceshipRight = document.createElement('img');
-spaceshipRight.src = './assets/images/spaceshipright.png';
-
-const spaceshipLeft = document.createElement('img');
-spaceshipLeft.src = './assets/images/spaceshipleft.png';
+const spaceshipInside = document.createElement('img');
+spaceshipInside.id = 'insideSpaceship';
+spaceshipInside.src = './assets/images/spaceshipright.png';
 
 const spaceship = document.getElementById('spaceship');
 
@@ -133,21 +128,32 @@ const generateMaze = () => {
     for (let j = 0; j < newMap.length; j++) {
         for (let k = 0; k < newMap[j].length; k++) {
             const houses = document.createElement('div');
+            houses.id = `${j}-${k}`;
             
             if (newMap[j][k] === 'W') {
                 houses.classList.add('maze-wall');
+                houses.setAttribute('data-type', 'W');
+
                 board.appendChild(houses);
+
             } else if (newMap[j][k] === ' ') {
                 houses.classList.add('maze-space');
+                houses.setAttribute('data-type', 'B'); // B for BLANK
+                
                 board.appendChild(houses);
+
             } else if (newMap[j][k] === 'S') {
-                spaceshipRight.classList.add('maze-spaceship');
+
+                spaceshipInside.classList.add('maze-spaceship');
                 houses.classList.add('maze-space');
-                houses.appendChild(spaceshipRight);
+                houses.setAttribute('data-type', 'S');
+
+                houses.appendChild(spaceshipInside);
                 board.appendChild(houses);
             } else {
                 planetNine.classList.add('maze-planet-nine');
                 houses.classList.add('maze-space');
+                houses.setAttribute('data-type', 'F');
                 houses.appendChild(planetNine);
                 board.appendChild(houses);
             } 
@@ -156,7 +162,68 @@ const generateMaze = () => {
     }
 
     generateSection.appendChild(board);
+
+    const player = {
+        j: 9,
+        k: 0,
+        spaceship: document.getElementById('insideSpaceship')
+    }
+    
+    
+
+    document.addEventListener('keydown', (evt) => {
+        const key = evt.key;
+
+        if (key === 'ArrowRight') {
+            player.spaceship.src = './assets/images/spaceshipright.png';
+
+            if (document.getElementById(`${player.j}-${player.k + 1}`).dataset.type === 'B') {
+                player.k++;
+
+                document.getElementById(`${player.j}-${player.k}`).appendChild(player.spaceship);
+            }
+            // } else if (document.getElementById(`${player.j}-${player.k + 1}`).dataset.type === 'W') {
+            //     console.log('wall');
+            // }
+        }
+
+        else if (key === 'ArrowLeft') {
+            player.spaceship.src = './assets/images/spaceshipleft.png';
+
+            if (document.getElementById(`${player.j}-${player.k - 1}`).dataset.type === 'B') {
+                player.k--;
+
+                document.getElementById(`${player.j}-${player.k}`).appendChild(player.spaceship);
+            }
+        }
+
+        else if (key === 'ArrowUp') {
+            player.spaceship.src = './assets/images/spaceshipup.png';
+
+            if (document.getElementById(`${player.j - 1}-${player.k}`).dataset.type === 'B') {
+                player.j--;
+
+                document.getElementById(`${player.j}-${player.k}`).appendChild(player.spaceship);
+            }
+        }
+
+        else if (key === 'ArrowDown') {
+            player.spaceship.src = './assets/images/spaceshipdown.png';
+
+            if (document.getElementById(`${player.j + 1}-${player.k}`).dataset.type === 'B') {
+                player.j++;
+
+                document.getElementById(`${player.j}-${player.k}`).appendChild(player.spaceship);
+            }
+        }
+    });
+
+    
+
+
 }
+
+
 
 
 
