@@ -191,7 +191,6 @@ body {
     padding: 20px;
     border-radius: 10px;
     background-color: #FFF;
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -233,6 +232,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .popup__button {
@@ -428,27 +428,40 @@ body {
 }
 
 @media (max-height: 900px) {
+
+    body {
+        justify-content: center;
+    }
     
     .header {
-        padding: 10px;
-        margin-bottom: 80px;
+        padding: 0;
+        margin-bottom: 0;
     }
 
     .header__title {
-        font-size: 6rem;
+        font-size: 5rem;
     }
 
     .header--instructions {
         margin-bottom: 0;
     }
 
+    .header__info-commands {
+        padding: 10px;
+        font-size: 2rem;
+    }
+
+    .section {
+        height: 434px;
+    }
+
     .section__image {
         width: 300px;
-        padding: 20px;
+        padding: 15px;
     }
 
     .section__button {
-        margin: 20px;
+        margin: 15px;
     }
 
     .section__instructions-title {
@@ -456,22 +469,34 @@ body {
         font-size: 3rem;
     }
 
+    .section__instructions-list__item {
+        font-size: 1.5rem;
+    }
     .section__planet-nine {
         width: 130px;
     }
 
+    .section__instructions-paragraph {
+        font-size: 1.5rem;
+    }
+
+    .section__good-luck {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
     .map-board {
-        width: 900px;
+        width: 780px;
     }
 
     .maze-wall {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
     }
     
     .maze-space {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
     }
 
     .maze-spaceship {
@@ -482,6 +507,166 @@ body {
     .maze-planet-nine {
         height: 35px;
         width: 40px;
+    }
+}
+
+@media (max-height: 650px) {
+
+    body {
+        justify-content: center;
+    }
+    .header__title {
+        font-size: 3rem;
+    }
+
+    .header__info {
+        font-size: 1.2rem;
+    }
+
+    .header__info-commands {
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+
+    .section {
+        height: 300px;
+    }
+
+    .section__image {
+        width: 180px;
+        padding: 15px;
+    }
+
+    .section__button {
+        margin: 10px;
+        font-size: 1.6rem;
+
+    }
+
+    .section__instructions-title {
+        padding: 10px;
+        font-size: 1.8rem;
+    }
+
+    .section__instructions-list__item {
+        font-size: 1rem;
+    }
+    .section__planet-nine {
+        width: 90px;
+    }
+
+    .section__instructions-paragraph {
+        font-size: 1rem;
+    }
+
+    .section__good-luck {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .map-board {
+        width: 480px;
+    }
+
+    .maze-wall {
+        height: 20px;
+        width: 20px;
+    }
+    
+    .maze-space {
+        height: 20px;
+        width: 20px;
+    }
+
+    .maze-spaceship {
+        height: 18px;
+        width: 20px;
+    }
+    
+    .maze-planet-nine {
+        height: 18px;
+        width: 20px;
+    }
+
+    .popup {
+        height: 300px;
+        width: 300px;
+        
+    }
+
+    .popup__title {
+        font-size: 2rem;
+        padding: 5px;
+    }
+
+    .popup__paragraph {
+        width: 100%;
+        font-size: 1rem;
+        margin: 5px;
+        font-weight: 100;
+    }
+
+    .popup__img {
+        width: 50px;
+        margin: 10px;
+    }
+
+    .buttons-nest {
+        width: 270px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .popup__button {
+        width: 130px;
+        padding: 5px;
+        font-size: 1.5rem;
+    }
+
+    .popup__button--red {
+        width: 120px;
+        padding: 5px;
+        font-size: 1.5rem;
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX(-15px);
+        }
+    
+        100% {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideLeft {
+        0%{
+            transform: translateX(15px);
+        }
+    
+        100% {
+            transform: translateX(0px);
+        }
+    }
+    
+    @keyframes slideTop {
+        0%{
+            transform: translateY(15px);
+        }
+    
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    
+    @keyframes slideDown {
+        0%{
+            transform: translateY(-15px);
+        }
+    
+        100% {
+            transform: translateY(0px);
+        }
     }
 }
 
