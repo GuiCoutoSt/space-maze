@@ -427,5 +427,63 @@ body {
     }
 }
 
+@media (max-height: 900px) {
+    
+    .header {
+        padding: 10px;
+        margin-bottom: 80px;
+    }
+
+    .header__title {
+        font-size: 6rem;
+    }
+
+    .header--instructions {
+        margin-bottom: 0;
+    }
+
+    .section__image {
+        width: 300px;
+        padding: 20px;
+    }
+
+    .section__button {
+        margin: 20px;
+    }
+
+    .section__instructions-title {
+        padding: 10px;
+        font-size: 3rem;
+    }
+
+    .section__planet-nine {
+        width: 130px;
+    }
+
+    .map-board {
+        width: 900px;
+    }
+
+    .maze-wall {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .maze-space {
+        height: 40px;
+        width: 40px;
+    }
+
+    .maze-spaceship {
+        height: 37px;
+        width: 40px;
+    }
+    
+    .maze-planet-nine {
+        height: 35px;
+        width: 40px;
+    }
+}
+
 
 
