@@ -4,8 +4,8 @@
 }
 
 html, body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
@@ -67,7 +67,8 @@ body {
 }
 
 .section {
-    width: 100%;
+    width: fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -131,9 +132,7 @@ body {
 .map-board {
     width: 1100px;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
 }
 
 .maze-wall {

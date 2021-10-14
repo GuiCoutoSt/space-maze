@@ -164,7 +164,7 @@ const generateMaze = () => {
         "S     W W W W W W WWW",
         "WWWWW W W W W W W W W",
         "W     W W W   W W W W",
-        "W WWWWWWW WWWWW W W W",
+        "W WWWWW W WWWWW W W W",
         "W       W       W   W",
         "WWWWWWWWWWWWWWWWWWWWW",
     ];
